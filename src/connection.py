@@ -100,10 +100,7 @@ class Connection(Thread):
         fp_data.append(','.join(self.priority if len(self.priority) > 0 else ['0']))
         fp_data.append(','.join(self.pseudo_headers))
 
-        self.fingerprint = self.encode('|'.join([str(d) for d in fp_data]))
-
-    def encode(self, fp):
-        return ('01'*10) + 'b3' + base64.b64encode(fp.encode('utf-8')).decode('utf-8')
+        self.fingerprint = '|'.join([str(d) for d in fp_data])
 
     def close(self):
         self.state = ConnectionState.CLOSED

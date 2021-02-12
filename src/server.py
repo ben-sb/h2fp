@@ -2,7 +2,6 @@ from states.stream_state import StreamState
 from connection import Connection
 import socket
 import ssl
-import threading
 import traceback
 
 class Server:
